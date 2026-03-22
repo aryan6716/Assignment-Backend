@@ -1,0 +1,596 @@
+// 1. Print each element
+const arr1 = [10, 20, 30, 40]
+
+for (let i = 0; i < arr1.length; i++) {
+  console.log(arr1[i])
+}
+
+
+// 2. Sum of array
+const arr2 = [1,2,3,4]
+
+let sum = 0
+for (let i = 0; i < arr2.length; i++) {
+  sum += arr2[i]
+}
+console.log(sum)
+
+
+// 3. Maximum value
+const arr3 = [5,1,9,3]
+
+let max = arr3[0]
+for (let i = 1; i < arr3.length; i++) {
+  if (arr3[i] > max) max = arr3[i]
+}
+console.log(max)
+
+
+// 4. Minimum value
+const arr4 = [7,3,9,0]
+
+const min = arr4.reduce((a,b)=> a<b?a:b)
+console.log(min)
+
+
+// 5. Reverse array
+const arr5 = [1,2,3]
+
+const rev = []
+for (let i = arr5.length-1; i >= 0; i--) {
+  rev.push(arr5[i])
+}
+console.log(rev)
+
+
+// 6. Remove duplicates
+const arr6 = [1,2,2,3,1]
+
+const unique = []
+for (let i = 0; i < arr6.length; i++) {
+  if (!unique.includes(arr6[i])) unique.push(arr6[i])
+}
+console.log(unique)
+
+
+// 7. Frequency count
+const arr7 = ['a','b','a','c']
+
+const freq = {}
+for (let i = 0; i < arr7.length; i++) {
+  freq[arr7[i]] = (freq[arr7[i]] || 0) + 1
+}
+console.log(freq)
+
+
+// 8. Flatten array
+const arr8 = [1,[2,3],4]
+
+const flat = []
+for (let i = 0; i < arr8.length; i++) {
+  if (Array.isArray(arr8[i])) flat.push(...arr8[i])
+  else flat.push(arr8[i])
+}
+console.log(flat)
+
+
+// 9. Rotate array
+const arr9 = [1,2,3,4]
+let k = 1
+
+k = k % arr9.length
+const rot = [...arr9.slice(-k), ...arr9.slice(0, arr9.length-k)]
+console.log(rot)
+
+
+// 10. Chunk array
+const arr10 = [1,2,3,4,5]
+const n = 2
+
+const chunk = []
+for (let i = 0; i < arr10.length; i += n) {
+  chunk.push(arr10.slice(i, i+n))
+}
+console.log(chunk)
+
+
+// 11. Remove falsy values
+const arr11 = [0,1,false,2,'',3,null]
+
+const clean = arr11.filter(Boolean)
+console.log(clean)
+
+
+// 12. Find index
+const arr12 = ['a','b','c']
+const target = 'b'
+
+let idx = -1
+for (let i = 0; i < arr12.length; i++) {
+  if (arr12[i] === target) {
+    idx = i
+    break
+  }
+}
+console.log(idx)
+
+
+// 13. Merge arrays
+const a13 = [1,2]
+const b13 = [3,4]
+
+const merge = [...a13, ...b13]
+console.log(merge)
+
+
+// 14. Interleave arrays
+const a14 = [1,2]
+const b14 = [10,20]
+
+const inter = []
+const maxLen = Math.max(a14.length, b14.length)
+
+for (let i = 0; i < maxLen; i++) {
+  if (a14[i] !== undefined) inter.push(a14[i])
+  if (b14[i] !== undefined) inter.push(b14[i])
+}
+console.log(inter)
+
+
+// 15. Sliding window sum
+const arr15 = [1,2,3,4]
+const k15 = 2
+
+let s = 0
+const res15 = []
+
+for (let i = 0; i < k15; i++) s += arr15[i]
+res15.push(s)
+
+for (let i = k15; i < arr15.length; i++) {
+  s += arr15[i] - arr15[i-k15]
+  res15.push(s)
+}
+console.log(res15)
+
+
+// 16. Range array
+const start = 3
+const end = 6
+
+const range = []
+for (let i = start; i <= end; i++) range.push(i)
+console.log(range)
+
+
+// 17. Remove index
+const arr17 = [1,2,3]
+const i17 = 1
+
+const rem = [...arr17.slice(0,i17), ...arr17.slice(i17+1)]
+console.log(rem)
+
+
+// 18. Count condition
+const arr18 = [5,12,8,20]
+
+let count = 0
+for (let i = 0; i < arr18.length; i++) {
+  if (arr18[i] > 10) count++
+}
+console.log(count)
+
+
+// 19. Unique sorted
+const arr19 = [3,1,2,3,2]
+
+const us = [...new Set(arr19)].sort((a,b)=>a-b)
+console.log(us)
+
+
+// 20. Index map
+const arr20 = ['a','b']
+
+const map20 = {}
+for (let i = 0; i < arr20.length; i++) {
+  map20[i] = arr20[i]
+}
+console.log(map20)
+
+
+// 21. Print keys and values
+const obj21 = { name:'Aman', age:22 }
+
+for (let key in obj21) {
+  console.log(key, obj21[key])
+}
+
+
+// 22. Add property
+const obj22 = { name:'Aman' }
+
+const res22 = { ...obj22, role:'admin' }
+console.log(res22)
+
+
+// 23. Delete property
+const obj23 = { name:'A', password:'x' }
+
+const { password, ...rest23 } = obj23
+console.log(rest23)
+
+
+// 24. Merge objects
+const a24 = { x:1 }
+const b24 = { y:2 }
+
+const res24 = { ...a24, ...b24 }
+console.log(res24)
+
+
+// 25. Invert object
+const obj25 = { a:1, b:2 }
+
+const inv = {}
+for (let key in obj25) {
+  inv[obj25[key]] = key
+}
+console.log(inv)
+
+
+// 26. Deep clone
+const obj26 = { a:{b:2} }
+
+const clone = JSON.parse(JSON.stringify(obj26))
+console.log(clone)
+
+
+// 27. Count keys
+const obj27 = { a:1, b:2 }
+
+console.log(Object.keys(obj27).length)
+
+
+// 28. Default values
+const obj28 = { name:'A' }
+
+const { name, role='user' } = obj28
+console.log(name, role)
+
+
+// 29. Pick keys
+const obj29 = { id:1, name:'A', email:'a@x' }
+const keys29 = ['id','email']
+
+const pick = {}
+for (let i = 0; i < keys29.length; i++) {
+  pick[keys29[i]] = obj29[keys29[i]]
+}
+console.log(pick)
+
+
+// 30. Omit keys
+const obj30 = { user:'A', password:'x' }
+
+const { password: p30, ...rest30 } = obj30
+console.log(rest30)
+
+
+// 31. Nested update
+const user31 = { name:'A', address:{city:'Old', zip:123} }
+
+const upd31 = {
+  ...user31,
+  address: {
+    ...user31.address,
+    city:'New'
+  }
+}
+console.log(upd31)
+
+
+// 32. Rename key
+const obj32 = { fullName:'A', age:20 }
+
+const { fullName, ...rest32 } = obj32
+const res32 = { name: fullName, ...rest32 }
+console.log(res32)
+
+
+// 33. Merge defaults
+const def33 = { retries:3 }
+const conf33 = { timeout:100 }
+
+const res33 = { ...def33, ...conf33 }
+console.log(res33)
+
+
+// 34. Check empty object
+const obj34 = {}
+
+console.log(Object.keys(obj34).length === 0)
+
+
+// Base data
+const users = [
+  { id:1, name:"Aman", age:22, isActive:true },
+  { id:2, name:"Riya", age:17, isActive:false },
+  { id:3, name:"Rahul", age:25, isActive:true },
+  { id:4, name:"Neha", age:19, isActive:false }
+]
+
+const orders = [
+  { id:1, userId:1, total:500, status:"completed" },
+  { id:2, userId:2, total:300, status:"pending" },
+  { id:3, userId:1, total:200, status:"completed" },
+  { id:4, userId:3, total:700, status:"completed" }
+]
+
+
+// 35. Total spending
+const total35 = {}
+for (let o of orders) {
+  total35[o.userId] = (total35[o.userId] || 0) + o.total
+}
+console.log(total35)
+
+
+// 36. Completed orders
+const res36 = orders.filter(o => o.status === 'completed')
+console.log(res36)
+
+
+// 37. Join users
+const res37 = orders.map(o => {
+  const u = users.find(x => x.id === o.userId)
+  return { ...o, userName: u ? u.name : null }
+})
+console.log(res37)
+
+
+// 38. Group orders
+const res38 = {}
+for (let o of orders) {
+  if (!res38[o.userId]) res38[o.userId] = []
+  res38[o.userId].push(o)
+}
+console.log(res38)
+
+
+// 39. Top orders
+const res39 = [...orders].sort((a,b)=>b.total-a.total).slice(0,2)
+console.log(res39)
+
+
+// 40. Average per user
+const data40 = {}
+for (let o of orders) {
+  if (!data40[o.userId]) data40[o.userId] = { sum:0, count:0 }
+  data40[o.userId].sum += o.total
+  data40[o.userId].count++
+}
+
+const res40 = {}
+for (let k in data40) {
+  res40[k] = data40[k].sum / data40[k].count
+}
+console.log(res40)
+
+
+// 41. Users with orders
+const ids41 = orders.map(o => o.userId)
+const res41 = users.filter(u => ids41.includes(u.id)).map(u => u.name)
+console.log(res41)
+
+
+// 42. Users without orders
+const res42 = users.filter(u => !ids41.includes(u.id)).map(u => u.name)
+console.log(res42)
+
+
+// 43. Pagination
+const page = 1
+const limit = 2
+
+const start43 = (page-1)*limit
+const res43 = {
+  page,
+  totalPages: Math.ceil(orders.length/limit),
+  data: orders.slice(start43, start43+limit)
+}
+console.log(res43)
+
+
+// 44. Search users
+const res44 = users.filter(u => u.name.toLowerCase().includes('am'))
+console.log(res44)
+
+
+// 45. Count by status
+const res45 = {}
+for (let o of orders) {
+  res45[o.status] = (res45[o.status] || 0) + 1
+}
+console.log(res45)
+
+
+// 46. Update order
+const res46 = orders.map(o => o.id === 2 ? {...o, status:'completed'} : o)
+console.log(res46)
+
+
+// 47. Soft delete
+const res47 = orders.map(o => o.id === 3 ? {...o, deleted:true} : o)
+console.log(res47)
+
+
+// 48. User summary
+const res48 = users.map(u => {
+  let t = 0
+  let c = 0
+  for (let o of orders) {
+    if (o.userId === u.id) {
+      t += o.total
+      c++
+    }
+  }
+  return { userId:u.id, name:u.name, totalOrders:c, totalSpent:t }
+})
+console.log(res48)
+
+
+// 49. Percent contribution
+let total49 = 0
+for (let o of orders) total49 += o.total
+
+const map49 = {}
+for (let o of orders) {
+  map49[o.userId] = (map49[o.userId] || 0) + o.total
+}
+
+const res49 = {}
+for (let k in map49) {
+  res49[k] = Number(((map49[k]/total49)*100).toFixed(2))
+}
+console.log(res49)
+
+
+// 50. DTO transform
+const res50 = orders.map(o => ({ id:o.id, total:o.total }))
+console.log(res50)
+
+
+// 51. Tax calculation
+const res51 = orders.map(o => {
+  const tax = +(o.total*0.18).toFixed(2)
+  return { ...o, tax, grandTotal: +(o.total+tax).toFixed(2) }
+})
+console.log(res51)
+
+
+// 52. Increase totals
+const res52 = orders.map(o => o.status === 'completed' ? {...o, total:o.total*1.1} : o)
+console.log(res52)
+
+
+// 53. Invalid orders
+const res53 = orders.filter(o => !o.id || !o.userId || !o.total)
+console.log(res53)
+
+
+// 54. Upsert
+const incoming = [{ id:1, total:600 }]
+
+const map54 = {}
+for (let o of orders) map54[o.id] = o
+for (let o of incoming) map54[o.id] = { ...map54[o.id], ...o }
+
+const res54 = Object.values(map54).sort((a,b)=>a.id-b.id)
+console.log(res54)
+
+
+// 55. Group users
+const res55 = { active:[], inactive:[] }
+
+for (let u of users) {
+  if (u.isActive) res55.active.push(u)
+  else res55.inactive.push(u)
+}
+console.log(res55)
+
+
+// 56. Filter users
+const res56 = users.filter(u => u.isActive && u.age >= 18)
+console.log(res56)
+
+
+// 57. Age histogram
+const res57 = { '<18':0, '18-24':0, '25+':0 }
+
+for (let u of users) {
+  if (u.age < 18) res57['<18']++
+  else if (u.age <= 24) res57['18-24']++
+  else res57['25+']++
+}
+console.log(res57)
+
+
+// 58. User lookup
+const res58 = {}
+for (let u of users) res58[u.id] = u
+console.log(res58)
+
+
+// 59. Top users
+const map59 = {}
+for (let o of orders) {
+  map59[o.userId] = (map59[o.userId] || 0) + o.total
+}
+
+const res59 = Object.entries(map59)
+  .sort((a,b)=>b[1]-a[1])
+  .slice(0,2)
+  .map(([id]) => users.find(u=>u.id==id).name)
+
+console.log(res59)
+
+
+// 60. Unique statuses
+const res60 = [...new Set(orders.map(o=>o.status))]
+console.log(res60)
+
+
+// 61. Flatten products
+const data61 = [{ id:1, products:[{productId:5, qty:2}] }]
+
+const res61 = data61.flatMap(o =>
+  o.products.map(p => ({ orderId:o.id, productId:p.productId, qty:p.qty }))
+)
+console.log(res61)
+
+
+// 62. Weighted total
+const weights = { completed:1, pending:0.5 }
+
+const res62 = {}
+for (let o of orders) {
+  res62[o.userId] = (res62[o.userId] || 0) + o.total * weights[o.status]
+}
+console.log(res62)
+
+
+// 63. Convert to CSV
+const res63 = "id,name\n" + users.map(u => `${u.id},${u.name}`).join("\n")
+console.log(res63)
+
+
+// 64. Merge preferences
+const prefs = [{ userId:1, theme:'dark' }]
+
+const res64 = users.map(u => {
+  const p = prefs.find(x => x.userId === u.id)
+  return { ...u, preferences: p || { theme:'light' } }
+})
+console.log(res64)
+
+
+// 65. Detect changes
+const oldUsers = [{ id:1, name:'A' }]
+const newUsers = [{ id:1, name:'Aman' }]
+
+const res65 = []
+
+for (let oldU of oldUsers) {
+  const newU = newUsers.find(u => u.id === oldU.id)
+  const changes = []
+
+  for (let key in oldU) {
+    if (oldU[key] !== newU[key]) changes.push(key)
+  }
+
+  if (changes.length > 0) {
+    res65.push({ id: oldU.id, changedFields: changes })
+  }
+}
+
+console.log(res65)
